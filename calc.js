@@ -54,15 +54,12 @@ document.querySelector(".buttons").onclick = (event) => {
         switch (sign) {
             case "+":
                  a = (+a) + (+b);
-                 out.textContent = a.toFixed(3);;
                  break;
             case "-":
                 a = a - b;
-                out.textContent = a.toFixed(3);;
                 break;
             case "x":
                 a = a * b;
-                out.textContent = a.toFixed(3);;
                 break;
             case "/":
                 if (b === "0") {
@@ -75,17 +72,21 @@ document.querySelector(".buttons").onclick = (event) => {
                 a = a / b;
                 if (b === "") {
                     a = 0;
-                    out.textContent = a;
-                } else {
-                    
-                    out.textContent = a.toFixed(3);
-                    console.log(a, b, sign);
-                    if (a === "" && b === "" && sign === "") {
-                        out.textContent = "0";
-                    }
                 }
                 break;
         }
         finish = true;
+        
+        console.log(a, b, sign);
+        if (a === "" && b === "" && sign === "") {
+            a = 0;
+        }
+        //out.textContent = a.toFixed(3);
+        try {
+            out.textContent = a.toFixed(3);
+        } catch (e) {
+            clearAll();
+            return;
+        }
     }
 }
