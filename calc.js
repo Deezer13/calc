@@ -81,7 +81,6 @@ document.querySelector(".buttons").onclick = (event) => {
         if (a === "" && b === "" && sign === "") {
             a = 0;
         }
-        //out.textContent = a.toFixed(3);
         try {
             out.textContent = a.toFixed(3);
         } catch (e) {
@@ -90,3 +89,16 @@ document.querySelector(".buttons").onclick = (event) => {
         }
     }
 }
+
+const btn = document.querySelector("#btn");
+let bodyBg = document.body.style.background;
+let calc = document.querySelector(".calc");
+let calcBg = calc.style.background;
+let p = document.querySelector(".calc-screen p");
+let pColor = p.style.color;
+
+btn.addEventListener("click", () => {
+    document.body.style.background = bodyBg == "#fff" ? bodyBg = "#000" : bodyBg = "#fff";
+    calc.style.background = calcBg == "#000" ? calcBg = "#fff" : calcBg = "#000";
+    p.style.color = pColor == "#fff" ? pColor = "#000" : pColor = "#fff";
+});
